@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import CreatorSignature from '../components/CreatorSignature';
 
 export default function Home() {
   return (
@@ -35,6 +36,73 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Live Stats Module */}
+      <section className="mt-12 mb-16 px-4 md:px-0">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="glass-card rounded-2xl p-6 text-center border border-primary/20 hover:border-primary/50 transition-colors">
+            <h4 className="text-secondary text-sm font-label-caps uppercase tracking-widest mb-2">Active Players</h4>
+            <div className="text-4xl font-headline-lg text-primary drop-shadow-[0_0_10px_rgba(233,196,0,0.4)]">
+              1,204
+            </div>
+          </div>
+          <div className="glass-card rounded-2xl p-6 text-center border border-primary/20 hover:border-primary/50 transition-colors">
+            <h4 className="text-secondary text-sm font-label-caps uppercase tracking-widest mb-2">Realms Hosted</h4>
+            <div className="text-4xl font-headline-lg text-primary drop-shadow-[0_0_10px_rgba(233,196,0,0.4)]">
+              42
+            </div>
+          </div>
+          <div className="glass-card rounded-2xl p-6 text-center border border-primary/20 hover:border-primary/50 transition-colors">
+            <h4 className="text-secondary text-sm font-label-caps uppercase tracking-widest mb-2">Total Matches</h4>
+            <div className="text-4xl font-headline-lg text-primary drop-shadow-[0_0_10px_rgba(233,196,0,0.4)]">
+              89,530
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Module */}
+      <section className="py-16 relative">
+        <div className="text-center mb-12">
+          <h3 className="font-headline-lg text-3xl md:text-4xl text-primary mb-4">Why Arcane Realm?</h3>
+          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto"></div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="glass-card p-8 rounded-3xl border border-outline-variant hover:border-primary/40 hover:-translate-y-2 transition-all duration-300 group">
+            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+              <span className="material-symbols-outlined text-3xl text-primary">bolt</span>
+            </div>
+            <h4 className="text-xl font-bold text-on-surface mb-3">Zero-Latency Routing</h4>
+            <p className="text-on-surface-variant text-sm leading-relaxed">
+              Experience flawless gameplay with our edge-optimized infrastructure, ensuring every move is registered instantly.
+            </p>
+          </div>
+          
+          <div className="glass-card p-8 rounded-3xl border border-outline-variant hover:border-primary/40 hover:-translate-y-2 transition-all duration-300 group">
+            <div className="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-colors">
+              <span className="material-symbols-outlined text-3xl text-secondary">dns</span>
+            </div>
+            <h4 className="text-xl font-bold text-on-surface mb-3">Load-Balanced Queues</h4>
+            <p className="text-on-surface-variant text-sm leading-relaxed">
+              Our intelligent queue system manages traffic spikes gracefully, maintaining server stability across all realms.
+            </p>
+          </div>
+
+          <div className="glass-card p-8 rounded-3xl border border-outline-variant hover:border-primary/40 hover:-translate-y-2 transition-all duration-300 group">
+            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+              <span className="material-symbols-outlined text-3xl text-primary">hub</span>
+            </div>
+            <h4 className="text-xl font-bold text-on-surface mb-3">Unified Ecosystem</h4>
+            <p className="text-on-surface-variant text-sm leading-relaxed">
+              One account to rule them all. Access your wallet, track achievements, and play instantly without multiple logins.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Signature Footer */}
+      <CreatorSignature />
     </motion.div>
   );
 }
