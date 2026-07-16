@@ -46,6 +46,26 @@ export default function Home() {
       transition={{ duration: 0.5 }}
       className="flex-grow pt-16 w-full max-w-[1600px] mx-auto px-margin-mobile md:px-12 pb-12 relative z-10"
     >
+      {/* Magical Background Orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-[-1]">
+        <motion.div 
+          animate={{ 
+            y: [0, -50, 0],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[30%] left-[-10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]"
+        />
+        <motion.div 
+          animate={{ 
+            y: [0, 50, 0],
+            opacity: [0.2, 0.5, 0.2]
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-[20%] right-[-5%] w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[150px]"
+        />
+      </div>
+
       {/* Hero Section */}
       <section className="relative w-full h-[530px] md:h-[618px] rounded-xl overflow-hidden mt-8 glass-card border-primary/30 flex items-center justify-center text-center p-8">
         <div className="absolute inset-0 bg-cover bg-center w-full h-full opacity-40 mix-blend-screen" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCRo2r92iM7PnD8hcVX-5Y7yRi2OTWbXWEk5SWLFjPMR1akWiKQ2UngHzMv49QmUkC8uNMv7uvmK5uKWRBgq6y-nctUOEqvVL4m8TGzs2_SxJ6wUI97pTxx6h7gPWQ1nB8EjCZNRr10o5j18xec4vEcZcjsKwTpbp_41yBR9w4nPhjTloH12vy5WhABSdfK62XniTWjVH1RyNhWqsiYyuuuqH8w1PV_Rju_gwvT2AD1bpA5KZhUh2Q5bg')" }}></div>
