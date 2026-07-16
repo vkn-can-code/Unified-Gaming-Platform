@@ -263,6 +263,11 @@ app.use('/play/:gameName/*', (req, res) => {
 });
 
 
+// Fallback for React Router in Portal
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'portal', 'dist', 'index.html'));
+});
+
 app.listen(PORT, () => {
     console.log(`Arcane Realm Platform running at http://localhost:${PORT}`);
 });
