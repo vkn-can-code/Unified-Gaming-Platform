@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import GameCard from './components/GameCard';
-import GameOverlay from './components/GameOverlay';
 
 function App() {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
-  const [activeGameUrl, setActiveGameUrl] = useState(null);
-  const [activeGameTitle, setActiveGameTitle] = useState('');
 
   useEffect(() => {
     fetchGames();
@@ -26,16 +22,6 @@ function App() {
     } finally {
       setLoading(false);
     }
-  };
-
-  const handleLaunchGame = (name, url) => {
-    setActiveGameTitle(name.replace(/-/g, ' '));
-    setActiveGameUrl(url);
-  };
-
-  const handleCloseGame = () => {
-    setActiveGameUrl(null);
-    setActiveGameTitle('');
   };
 
   return (
@@ -83,18 +69,18 @@ function App() {
               Discover dynamic games, conquer leaderboards, and experience seamless hosting in our premium unified game platform.
             </p>
             <div className="pt-6">
-              <button 
-                onClick={() => window.scrollTo({ top: 700, behavior: 'smooth' })}
-                className="bg-primary-container text-on-primary font-headline-lg-mobile text-headline-lg-mobile py-3 px-8 rounded-sm hover:shadow-[0_0_20px_rgba(233,196,0,0.4)] transition-all duration-300 transform hover:-translate-y-1"
+              <a 
+                href="#library"
+                className="inline-block bg-primary-container text-on-primary font-headline-lg-mobile text-headline-lg-mobile py-3 px-8 rounded-sm hover:shadow-[0_0_20px_rgba(233,196,0,0.4)] transition-all duration-300 transform hover:-translate-y-1"
               >
                 Explore Games
-              </button>
+              </a>
             </div>
           </div>
         </section>
 
         {/* Trending Realms (Games Grid) */}
-        <section className="space-y-6 pt-4">
+        <section id="library" className="space-y-6 pt-4 scroll-mt-24">
           <div className="flex items-center space-x-4 mb-8">
             <h2 className="font-headline-lg text-headline-lg text-primary">Platform Library</h2>
             <div className="ethereal-divider flex-grow"></div>
@@ -107,8 +93,12 @@ function App() {
           )}
 
           {error && (
-            <div className="text-center font-body-md text-error py-12">
-              {error}
+            <div className="text-center font-body-md text-error py-12 flex flex-col items-center">
+              <span className="material-symbols-outlined text-4xl mb-4">error</span>
+              <p>{error}</p>
+              <button onClick={fetchGames} className="mt-4 px-4 py-2 border border-primary text-primary rounded hover:bg-primary hover:text-on-primary transition-colors">
+                Retry
+              </button>
             </div>
           )}
 
@@ -122,22 +112,13 @@ function App() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[250px]">
               {games.map((game, index) => (
                 <div key={game.id} className={index === 0 && games.length > 1 ? "md:col-span-2" : ""}>
-                  <GameCard game={game} onLaunch={handleLaunchGame} />
+                  <GameCard game={game} />
                 </div>
               ))}
             </div>
           )}
         </section>
       </main>
-
-      {/* Game Overlay (Iframe Launcher) */}
-      {activeGameUrl && (
-        <GameOverlay 
-          gameUrl={activeGameUrl} 
-          gameTitle={activeGameTitle} 
-          onClose={handleCloseGame} 
-        />
-      )}
     </div>
   );
 }

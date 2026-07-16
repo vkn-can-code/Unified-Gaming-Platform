@@ -261,8 +261,16 @@ function App() {
   const frozenIndexes = frozenForPlayer(game);
 
   return (
-    <main className="min-h-screen bg-[#f7f3ea] text-[#102027]">
-      <section className="border-b border-[#102027]/10 bg-[#fffaf0]">
+    <main className="min-h-screen bg-[#f7f3ea] text-[#102027] relative">
+      <div className="absolute top-4 left-4 z-50">
+        <a 
+          href="/" 
+          className="flex items-center gap-2 px-4 py-2 bg-white border border-[#073b4c]/20 text-[#073b4c] rounded-lg hover:bg-[#073b4c] hover:text-white transition-all font-bold text-sm shadow-[0_4px_12px_rgba(7,59,76,0.1)]"
+        >
+          <span>← Back to Portal</span>
+        </a>
+      </div>
+      <section className="border-b border-[#102027]/10 bg-[#fffaf0] pt-12 md:pt-6">
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-5 py-6 md:px-8">
           <div className="flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
             <div>

@@ -120,8 +120,15 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center py-10 min-h-screen">
-      <header className="mb-6">
+    <div className="flex flex-col items-center justify-center py-10 min-h-screen relative">
+      <a 
+        href="/" 
+        className="absolute top-4 left-4 flex items-center gap-2 px-4 py-2 bg-purple-900/40 border border-purple-500/50 text-purple-200 rounded-lg hover:bg-purple-800/60 hover:text-white transition-all font-ui"
+      >
+        <span>← Back to Portal</span>
+      </a>
+
+      <header className="mb-6 mt-8">
         <h1 className="glow-text">Arcane Sudoku</h1>
       </header>
 

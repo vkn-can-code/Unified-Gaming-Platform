@@ -12,9 +12,9 @@ export default function GameCard({ game, onLaunch }) {
   const iconLetter = game.name.charAt(0).toUpperCase();
 
   return (
-    <div 
-      className={`glass-card rounded-xl relative overflow-hidden group transition-all cursor-pointer ${borderClass} ${glowClass}`}
-      onClick={() => onLaunch(game.name, game.playUrl)}
+    <a 
+      href={game.playUrl}
+      className={`block glass-card rounded-xl relative overflow-hidden group transition-all cursor-pointer ${borderClass} ${glowClass}`}
     >
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-50 group-hover:opacity-70 transition-opacity duration-500" 
@@ -33,6 +33,6 @@ export default function GameCard({ game, onLaunch }) {
           <span className="material-symbols-outlined">play_arrow</span>
         </button>
       </div>
-    </div>
+    </a>
   );
 }
