@@ -23,9 +23,9 @@ function AnimatedCounter({ value }) {
 
 export default function Home() {
   const [stats, setStats] = useState({
-    activePlayers: 1204, // Default fallbacks while loading
-    realmsHosted: 42,
-    totalMatches: 89530
+    activePlayers: 0,
+    realmsHosted: 0,
+    totalMatches: 0
   });
 
   useEffect(() => {
