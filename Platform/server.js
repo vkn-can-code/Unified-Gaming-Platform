@@ -221,7 +221,7 @@ app.use('/play/:gameName', (req, res, next) => {
 });
 
 // For HTML5 games served via Express static, we might need a catch-all for SPA client-side routing within the game
-app.use('/play/:gameName/*', (req, res) => {
+app.use('/play/:gameName', (req, res) => {
     const gameName = req.params.gameName;
     
     // Security: Prevent Path Traversal
@@ -264,7 +264,7 @@ app.use('/play/:gameName/*', (req, res) => {
 
 
 // Fallback for React Router in Portal
-app.get('*', (req, res) => {
+app.use((req, res) => {
     res.sendFile(path.join(__dirname, 'portal', 'dist', 'index.html'));
 });
 

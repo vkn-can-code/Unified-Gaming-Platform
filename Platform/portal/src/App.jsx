@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import Home from './pages/Home';
 import Library from './pages/Library';
 import PageLoader from './components/PageLoader';
+import Navbar from './components/Navbar';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -50,24 +51,8 @@ function App() {
           <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-primary-container/5 blur-[120px]"></div>
         </div>
 
-        {/* TopAppBar */}
-        <header className="bg-background/80 backdrop-blur-md flex justify-between items-center w-full px-margin-mobile h-16 z-50 fixed border-b border-outline-variant shadow-[0_0_20px_rgba(233,196,0,0.15)]">
-          <button className="text-primary hover:text-primary transition-colors duration-300">
-            <span className="material-symbols-outlined">menu</span>
-          </button>
-          <div className="flex flex-col items-center flex-grow">
-            <Link to="/" className="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-widest text-center hover:drop-shadow-[0_0_10px_rgba(233,196,0,0.5)] transition-all">
-              ARCANE REALM
-            </Link>
-          </div>
-          <div className="text-primary hover:text-primary transition-colors duration-300 cursor-pointer">
-            <img 
-              alt="Gilded User Profile" 
-              className="w-8 h-8 rounded-full border border-primary/50" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPIVKGbVJcM32FmTWPZgpJOoQfVpMLJquG-ChLo27ZRSc43pkVw_xZeiBYD8fVeL-_XMEm9iwOrWtbowu46LgDHEAfpnbv8PbmxS_dOPZVXJd7OfYYdOi63mxkyLtMfitAPGd0MGDB5LAPuyjVZoEoujSmsfTvsrLOcACng2tO63yZl7PgWd-_2FUSIYfIaDNDT6iOyxCmgfBoXbf4fuQRTRa2iAaLqLA6JFAqC1Oi-GNCnUCvjbZNpg"
-            />
-          </div>
-        </header>
+        {/* Navbar */}
+        <Navbar />
 
         {/* Main Content Canvas */}
         <AnimatedRoutes />
