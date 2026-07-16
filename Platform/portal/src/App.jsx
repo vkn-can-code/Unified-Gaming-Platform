@@ -74,32 +74,32 @@ function App() {
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKB55bujwS5a-XJRTsxKuGgmK_Z1pRVnjvdgF2_hqRLWlriUi5Tr6qFbv_gPh8i76uAyNlRDPd5O-DQ9LRYlK-KTsDqLgu5HvBDcqub_uuNSkCZscimjS0ReQnFb_kLFH3DQ2I2WdLrE4yFHbItsOF4NzEFz4qqCyfh781bYcZhXRhD2dHpFoccmrxy58nAev5LQoPTFgfvkpFqq2v4q8JUsCUZTZsQqpdobGHjFDt8iIgd95gPUSkrA"
           />
           <div>
-            <h2 className="font-headline-lg-mobile text-headline-lg-mobile text-primary">Hero of the Void</h2>
-            <p className="font-body-sm text-body-sm text-on-surface-variant">LVL 99 Paladin</p>
-            <p className="font-label-caps text-label-caps text-secondary mt-1">Mana: 100%</p>
+            <h2 className="font-headline-lg-mobile text-headline-lg-mobile text-primary">Player One</h2>
+            <p className="font-body-sm text-body-sm text-on-surface-variant">Platform Admin</p>
+            <p className="font-label-caps text-label-caps text-secondary mt-1">Status: Online</p>
           </div>
         </div>
         <nav className="flex-grow flex flex-col gap-2 px-4 overflow-y-auto">
           <a className="flex items-center gap-4 px-4 py-3 rounded-lg bg-surface-variant/40 text-primary transition-colors group cursor-pointer">
-            <span className="material-symbols-outlined">auto_awesome</span>
-            <span className="font-body-md text-body-md">Featured Realms</span>
+            <span className="material-symbols-outlined">grid_view</span>
+            <span className="font-body-md text-body-md">All Games</span>
           </a>
           <a className="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-surface-variant/40 text-on-surface-variant transition-colors group cursor-pointer">
-            <span className="material-symbols-outlined group-hover:text-primary transition-colors">assignment</span>
-            <span className="font-body-md text-body-md">Quest Log</span>
+            <span className="material-symbols-outlined group-hover:text-primary transition-colors">history</span>
+            <span className="font-body-md text-body-md">Play History</span>
           </a>
           <a className="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-surface-variant/40 text-on-surface-variant transition-colors group cursor-pointer">
             <span className="material-symbols-outlined group-hover:text-primary transition-colors">forum</span>
-            <span className="font-body-md text-body-md">Guild Chat</span>
+            <span className="font-body-md text-body-md">Community</span>
           </a>
           <a className="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-surface-variant/40 text-on-surface-variant transition-colors group cursor-pointer">
-            <span className="material-symbols-outlined group-hover:text-primary transition-colors">storefront</span>
-            <span className="font-body-md text-body-md">Arcane Store</span>
+            <span className="material-symbols-outlined group-hover:text-primary transition-colors">add_box</span>
+            <span className="font-body-md text-body-md">Add Games</span>
           </a>
           <div className="mt-auto mb-4 border-t border-outline-variant/30 pt-4">
             <a className="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-surface-variant/40 text-on-surface-variant transition-colors group cursor-pointer">
               <span className="material-symbols-outlined group-hover:text-primary transition-colors">settings</span>
-              <span className="font-body-md text-body-md">Settings</span>
+              <span className="font-body-md text-body-md">Platform Settings</span>
             </a>
           </div>
         </nav>
@@ -114,17 +114,20 @@ function App() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-0"></div>
           <div className="relative z-10 space-y-6 max-w-2xl">
             <div className="inline-block px-4 py-1 bg-secondary-container/20 border border-secondary rounded-sm font-label-caps text-label-caps text-secondary mb-4">
-              NEW EXPANSION LIVE
+              UNIFIED ENGINE ACTIVE
             </div>
             <h2 className="font-display-hero text-display-hero text-primary drop-shadow-[0_0_10px_rgba(255,215,0,0.5)]">
-              Enter the Void
+              Welcome to Arcane Realm
             </h2>
             <p className="font-body-md text-body-md text-on-surface-variant max-w-lg mx-auto">
-              Discover ancient artifacts, conquer legendary beasts, and forge your legacy in the most immersive fantasy realm ever created.
+              Discover dynamic games, conquer leaderboards, and experience seamless hosting in our premium unified game platform.
             </p>
             <div className="pt-6">
-              <button className="bg-primary-container text-on-primary font-headline-lg-mobile text-headline-lg-mobile py-3 px-8 rounded-sm hover:shadow-[0_0_20px_rgba(233,196,0,0.4)] transition-all duration-300 transform hover:-translate-y-1">
-                Begin Journey
+              <button 
+                onClick={() => window.scrollTo({ top: 700, behavior: 'smooth' })}
+                className="bg-primary-container text-on-primary font-headline-lg-mobile text-headline-lg-mobile py-3 px-8 rounded-sm hover:shadow-[0_0_20px_rgba(233,196,0,0.4)] transition-all duration-300 transform hover:-translate-y-1"
+              >
+                Explore Games
               </button>
             </div>
           </div>
@@ -133,24 +136,24 @@ function App() {
         {/* Stats Section */}
         <section className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-gutter">
           <div className="glass-card p-6 text-center space-y-2 rounded-lg glow-purple transition-all border-secondary/20">
-            <span className="material-symbols-outlined text-secondary text-4xl mb-2">group</span>
-            <h3 className="font-display-hero text-display-hero text-primary text-3xl">2.4M</h3>
-            <p className="font-label-caps text-label-caps text-on-surface-variant">Active Heroes</p>
+            <span className="material-symbols-outlined text-secondary text-4xl mb-2">sports_esports</span>
+            <h3 className="font-display-hero text-display-hero text-primary text-3xl">∞</h3>
+            <p className="font-label-caps text-label-caps text-on-surface-variant">Instant Play</p>
           </div>
           <div className="glass-card p-6 text-center space-y-2 rounded-lg glow-effect transition-all border-primary/20">
-            <span className="material-symbols-outlined text-primary text-4xl mb-2">swords</span>
-            <h3 className="font-display-hero text-display-hero text-primary text-3xl">15M+</h3>
-            <p className="font-label-caps text-label-caps text-on-surface-variant">Quests Completed</p>
+            <span className="material-symbols-outlined text-primary text-4xl mb-2">extension</span>
+            <h3 className="font-display-hero text-display-hero text-primary text-3xl">Auto</h3>
+            <p className="font-label-caps text-label-caps text-on-surface-variant">Discovery Engine</p>
           </div>
           <div className="glass-card p-6 text-center space-y-2 rounded-lg glow-purple transition-all border-secondary/20">
-            <span className="material-symbols-outlined text-secondary text-4xl mb-2">auto_awesome</span>
-            <h3 className="font-display-hero text-display-hero text-primary text-3xl">99</h3>
-            <p className="font-label-caps text-label-caps text-on-surface-variant">Max Level</p>
+            <span className="material-symbols-outlined text-secondary text-4xl mb-2">dashboard</span>
+            <h3 className="font-display-hero text-display-hero text-primary text-3xl">100%</h3>
+            <p className="font-label-caps text-label-caps text-on-surface-variant">Iframe Sandbox</p>
           </div>
           <div className="glass-card p-6 text-center space-y-2 rounded-lg glow-effect transition-all border-primary/20">
-            <span className="material-symbols-outlined text-primary text-4xl mb-2">storefront</span>
-            <h3 className="font-display-hero text-display-hero text-primary text-3xl">500+</h3>
-            <p className="font-label-caps text-label-caps text-on-surface-variant">Legendary Items</p>
+            <span className="material-symbols-outlined text-primary text-4xl mb-2">security</span>
+            <h3 className="font-display-hero text-display-hero text-primary text-3xl">Secure</h3>
+            <p className="font-label-caps text-label-caps text-on-surface-variant">Local Hosting</p>
           </div>
         </section>
 
