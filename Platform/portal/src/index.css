@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply m-0 p-0 overflow-x-hidden min-h-screen bg-[#131318] text-[#e4e1e9];
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23ffd700" stroke="%23ffffff" stroke-width="1" d="M2,2 L10,22 L14,14 L22,10 Z" style="filter: drop-shadow(0px 0px 3px %23ffd700)"/></svg>'), auto;
+  }
+  
+  a, button, .game-card {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%238a2be2" stroke="%23ffffff" stroke-width="1" d="M2,2 L10,22 L14,14 L22,10 Z" style="filter: drop-shadow(0px 0px 3px %238a2be2)"/></svg>'), pointer !important;
+  }
+}
+
+@layer components {
+  /* Legacy classes */
+  .glow-text {
+    @apply font-display-hero text-4xl m-0 text-primary tracking-widest;
+    text-shadow: 0 0 10px rgba(255,215,0,0.6), 0 0 20px rgba(138,43,226,0.7), 0 0 30px #8a2be2;
+  }
+  
+  .glow-text-small {
+    @apply font-display-hero text-2xl m-0 text-primary;
+    text-shadow: 0 0 10px rgba(255,215,0,0.6);
+  }
+
+  /* New Redesign Classes */
+  .glow-effect:hover {
+    box-shadow: 0 0 20px rgba(233, 196, 0, 0.3);
+  }
+  
+  .glow-purple:hover {
+    box-shadow: 0 0 20px rgba(119, 1, 208, 0.3);
+  }
+  
+  .ethereal-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 215, 0, 0.5) 50%, rgba(119, 1, 208, 0.5) 100%, transparent 100%);
+  }
+  
+  .glass-card {
+    background: rgba(14, 14, 19, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(153, 144, 119, 0.3);
+  }
+}
