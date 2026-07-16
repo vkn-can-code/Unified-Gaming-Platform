@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation, Link } from 'react-router-do
 import { AnimatePresence } from 'framer-motion';
 import Home from './pages/Home';
 import Library from './pages/Library';
+import ComingSoon from './pages/ComingSoon';
 import PageLoader from './components/PageLoader';
 import Navbar from './components/Navbar';
 
@@ -35,6 +36,8 @@ function AnimatedRoutes() {
         <Routes location={displayLocation} key={displayLocation.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/library" element={<Library />} />
+          <Route path="/leaderboards" element={<ComingSoon />} />
+          <Route path="/tournaments" element={<ComingSoon />} />
         </Routes>
       </AnimatePresence>
     </>
