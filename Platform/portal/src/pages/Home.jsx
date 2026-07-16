@@ -87,7 +87,7 @@ export default function Home() {
             </div>
           </div>
           <div className="glass-card rounded-2xl p-6 text-center border border-primary/20 hover:border-primary/50 transition-colors">
-            <h4 className="text-secondary text-sm font-label-caps uppercase tracking-widest mb-2">Total Matches</h4>
+            <h4 className="text-secondary text-sm font-label-caps uppercase tracking-widest mb-2">Total Games Played</h4>
             <div className="text-4xl font-headline-lg text-primary drop-shadow-[0_0_10px_rgba(233,196,0,0.4)]">
               <AnimatedCounter value={stats.totalMatches} />
             </div>
