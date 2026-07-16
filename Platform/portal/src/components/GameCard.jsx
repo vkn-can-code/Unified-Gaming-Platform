@@ -14,7 +14,7 @@ export default function GameCard({ game, onLaunch }) {
   return (
     <a 
       href={game.playUrl}
-      className={`block glass-card rounded-xl relative overflow-hidden group transition-all cursor-pointer ${borderClass} ${glowClass}`}
+      className={`block w-full h-full glass-card rounded-xl relative overflow-hidden group transition-all cursor-pointer ${borderClass} ${glowClass}`}
     >
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-50 group-hover:opacity-70 transition-opacity duration-500" 
