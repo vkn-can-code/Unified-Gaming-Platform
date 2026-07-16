@@ -1,10 +1,43 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, animate } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import CreatorSignature from '../components/CreatorSignature';
 import FeaturedGames from '../components/FeaturedGames';
 
+function AnimatedCounter({ value }) {
+  const [displayValue, setDisplayValue] = useState("0");
+
+  useEffect(() => {
+    const controls = animate(0, value, {
+      duration: 2.5,
+      ease: "easeOut",
+      onUpdate(v) {
+        setDisplayValue(Math.round(v).toLocaleString());
+      }
+    });
+    return controls.stop;
+  }, [value]);
+
+  return <span>{displayValue}</span>;
+}
+
 export default function Home() {
+  const [stats, setStats] = useState({
+    activePlayers: 1204, // Default fallbacks while loading
+    realmsHosted: 42,
+    totalMatches: 89530
+  });
+
+  useEffect(() => {
+    fetch('/api/stats')
+      .then(res => res.json())
+      .then(data => {
+        if (!data.error) {
+          setStats(data);
+        }
+      })
+      .catch(err => console.error("Could not fetch stats", err));
+  }, []);
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -44,19 +77,19 @@ export default function Home() {
           <div className="glass-card rounded-2xl p-6 text-center border border-primary/20 hover:border-primary/50 transition-colors">
             <h4 className="text-secondary text-sm font-label-caps uppercase tracking-widest mb-2">Active Players</h4>
             <div className="text-4xl font-headline-lg text-primary drop-shadow-[0_0_10px_rgba(233,196,0,0.4)]">
-              1,204
+              <AnimatedCounter value={stats.activePlayers} />
             </div>
           </div>
           <div className="glass-card rounded-2xl p-6 text-center border border-primary/20 hover:border-primary/50 transition-colors">
             <h4 className="text-secondary text-sm font-label-caps uppercase tracking-widest mb-2">Realms Hosted</h4>
             <div className="text-4xl font-headline-lg text-primary drop-shadow-[0_0_10px_rgba(233,196,0,0.4)]">
-              42
+              <AnimatedCounter value={stats.realmsHosted} />
             </div>
           </div>
           <div className="glass-card rounded-2xl p-6 text-center border border-primary/20 hover:border-primary/50 transition-colors">
             <h4 className="text-secondary text-sm font-label-caps uppercase tracking-widest mb-2">Total Matches</h4>
             <div className="text-4xl font-headline-lg text-primary drop-shadow-[0_0_10px_rgba(233,196,0,0.4)]">
-              89,530
+              <AnimatedCounter value={stats.totalMatches} />
             </div>
           </div>
         </div>

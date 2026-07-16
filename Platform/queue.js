@@ -19,6 +19,13 @@ function initDB() {
                 createdAt INTEGER
             )
         `);
+        db.run(`
+            CREATE TABLE IF NOT EXISTS platform_stats (
+                id INTEGER PRIMARY KEY,
+                total_matches INTEGER
+            )
+        `);
+        db.run(`INSERT OR IGNORE INTO platform_stats (id, total_matches) VALUES (1, 89530)`);
     });
 }
 
@@ -65,6 +72,10 @@ async function joinQueue(token, game) {
         `INSERT INTO sessions (token, game, status, lastHeartbeat, createdAt) VALUES (?, ?, ?, ?, ?)`,
         [token, game, status, now, now]
     );
+
+    if (status === 'playing') {
+        await runQuery(`UPDATE platform_stats SET total_matches = total_matches + 1 WHERE id = 1`);
+    }
 
     return status;
 }
@@ -118,7 +129,20 @@ async function processQueue() {
         for (const user of nextUsers) {
             await runQuery(`UPDATE sessions SET status = 'playing', lastHeartbeat = ? WHERE token = ?`, [now, user.token]);
         }
+        
+        if (nextUsers.length > 0) {
+            await runQuery(`UPDATE platform_stats SET total_matches = total_matches + ? WHERE id = 1`, [nextUsers.length]);
+        }
     }
+}
+
+async function getPlatformStats() {
+    const { count } = await getQuery(`SELECT COUNT(*) as count FROM sessions`);
+    const stats = await getQuery(`SELECT total_matches FROM platform_stats WHERE id = 1`);
+    return {
+        activePlayers: count,
+        totalMatches: stats ? stats.total_matches : 89530
+    };
 }
 
 // Run cleanup loop every 5 seconds
@@ -132,5 +156,6 @@ module.exports = {
     getStatus,
     heartbeat,
     leave,
-    processQueue
+    processQueue,
+    getPlatformStats
 };

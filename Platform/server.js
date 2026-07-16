@@ -117,6 +117,28 @@ app.get('/api/games', (req, res) => {
     }
 });
 
+// Get platform live stats
+app.get('/api/stats', async (req, res) => {
+    try {
+        const stats = await queue.getPlatformStats();
+        
+        let realmsCount = 0;
+        if (fs.existsSync(gamesDir)) {
+            realmsCount = fs.readdirSync(gamesDir, { withFileTypes: true })
+                .filter(dirent => dirent.isDirectory()).length;
+        }
+
+        res.json({
+            activePlayers: stats.activePlayers,
+            realmsHosted: realmsCount,
+            totalMatches: stats.totalMatches
+        });
+    } catch (e) {
+        console.error('Stats error:', e);
+        res.status(500).json({ error: 'Database error' });
+    }
+});
+
 // Queue Endpoints
 app.post('/api/queue/join', async (req, res) => {
     const { game } = req.body;
