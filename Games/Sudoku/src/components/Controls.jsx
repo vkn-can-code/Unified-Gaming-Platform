@@ -4,45 +4,63 @@ export default function Controls({ onNumberClick, onErase, onNewGame, onDifficul
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
-    <div className="flex flex-col items-center mt-6 max-w-md w-full gap-6">
+    <div className="flex flex-col gap-6 w-full">
       
-      {/* Numpad */}
-      <div className="grid grid-cols-5 gap-2 w-full px-4">
-        {numbers.map(num => (
-          <button
-            key={`num-${num}`}
-            className="bg-bg-panel border border-purple text-gold font-ui text-xl py-2 rounded shadow-md hover:bg-purple/30 hover:border-gold transition-colors active:scale-95"
-            onClick={() => onNumberClick(num.toString())}
-          >
-            {num}
-          </button>
-        ))}
-        <button
-          className="bg-bg-panel border border-red-500/50 text-red-400 font-ui text-lg py-2 rounded shadow-md hover:bg-red-900/30 hover:border-red-500 transition-colors active:scale-95"
-          onClick={onErase}
-        >
-          Erase
-        </button>
-      </div>
-
-      {/* Game Actions */}
-      <div className="flex flex-col gap-4 w-full px-4">
-        <div className="flex justify-between gap-2">
+      {/* Game Mode Panel */}
+      <section className="rounded-lg border border-[#102027]/10 bg-white p-4 shadow-[0_14px_35px_rgba(16,32,39,0.06)]">
+        <div className="mb-4">
+          <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#ff6b6b]">Game Mode</p>
+          <h2 className="text-xl font-black text-[#073b4c]">Difficulty Level</h2>
+        </div>
+        
+        <div className="flex flex-wrap items-center gap-2 mb-4">
           {['easy', 'medium', 'hard'].map(diff => (
             <button
               key={diff}
-              className={`flex-1 py-1 px-2 rounded font-ui capitalize text-sm transition-colors border ${currentDifficulty === diff ? 'bg-gold text-bg-dark border-gold' : 'bg-transparent text-purple border-purple hover:border-gold hover:text-gold'}`}
+              className={`rounded-full px-4 py-2 text-sm font-bold capitalize transition ${currentDifficulty === diff ? 'bg-[#ff6b6b] text-white' : 'bg-white text-[#38535f] hover:bg-[#ffe0dc] border border-[#102027]/10'}`}
               onClick={() => onDifficultyChange(diff)}
             >
               {diff}
             </button>
           ))}
         </div>
-        
-        <button className="btn-fantasy w-full" onClick={onNewGame}>
-          Summon New Puzzle
+
+        <button 
+          className="inline-flex w-full justify-center items-center gap-2 rounded-lg bg-[#102027] px-4 py-3 text-sm font-bold text-white transition hover:bg-[#073b4c]" 
+          onClick={onNewGame}
+        >
+          Generate New Puzzle
         </button>
-      </div>
+      </section>
+
+      {/* Input Panel */}
+      <section className="rounded-lg border border-[#102027]/10 bg-white p-4 shadow-[0_14px_35px_rgba(16,32,39,0.06)]">
+        <div className="mb-4 flex items-center justify-between">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#00a896]">Input</p>
+            <h2 className="text-xl font-black text-[#073b4c]">Number Pad</h2>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-5 gap-2 w-full">
+          {numbers.map(num => (
+            <button
+              key={`num-${num}`}
+              className="rounded-lg border border-[#102027]/10 bg-[#fffaf0] p-3 text-xl font-black text-[#073b4c] hover:border-[#00a896] hover:bg-white transition-all shadow-sm active:scale-95"
+              onClick={() => onNumberClick(num.toString())}
+            >
+              {num}
+            </button>
+          ))}
+          <button
+            className="rounded-lg border border-[#ff6b6b]/30 bg-[#fff1ef] p-3 text-sm font-bold text-[#e64343] hover:border-[#ff6b6b] hover:bg-[#ffe0dc] transition-all shadow-sm active:scale-95 flex items-center justify-center"
+            onClick={onErase}
+          >
+            Erase
+          </button>
+        </div>
+      </section>
+      
     </div>
   );
 }

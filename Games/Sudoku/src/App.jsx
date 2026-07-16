@@ -120,42 +120,61 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center py-10 min-h-screen relative">
-      <a 
-        href="/" 
-        className="absolute top-4 left-4 flex items-center gap-2 px-4 py-2 bg-purple-900/40 border border-purple-500/50 text-purple-200 rounded-lg hover:bg-purple-800/60 hover:text-white transition-all font-ui"
-      >
-        <span>← Back to Portal</span>
-      </a>
-
-      <header className="mb-6 mt-8">
-        <h1 className="glow-text">Arcane Sudoku</h1>
-      </header>
-
-      {isWon && (
-        <div className="mb-4 text-gold font-ui text-2xl animate-pulse-glow">
-          Victory! The puzzle is solved!
+    <main className="min-h-screen bg-[#f7f3ea] text-[#102027] relative pb-12">
+      <div className="absolute top-4 left-4 z-50">
+        <a 
+          href="/" 
+          className="flex items-center gap-2 px-4 py-2 bg-white border border-[#073b4c]/20 text-[#073b4c] rounded-lg hover:bg-[#073b4c] hover:text-white transition-all font-bold text-sm shadow-[0_4px_12px_rgba(7,59,76,0.1)]"
+        >
+          <span>← Back to Portal</span>
+        </a>
+      </div>
+      
+      <section className="border-b border-[#102027]/10 bg-[#fffaf0] pt-16 md:pt-12 pb-6 mb-8">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-5 md:px-8">
+          <div>
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#00a896]/30 bg-[#00a896]/10 px-3 py-1 text-sm font-semibold text-[#075f59]">
+              <span aria-hidden="true">✨</span>
+              Innovative Puzzle
+            </div>
+            <h1 className="text-4xl font-black tracking-normal text-[#073b4c] sm:text-5xl">Sudoku Tactics</h1>
+            <p className="mt-2 max-w-2xl text-base text-[#38535f]">
+              Classic number puzzle upgraded with a clean, modern aesthetic.
+            </p>
+          </div>
         </div>
-      )}
+      </section>
 
-      {board.length > 0 && (
-        <Board 
-          board={board}
-          initialBoard={initialBoard}
-          selectedCell={selectedCell}
-          onCellClick={handleCellClick}
-          errors={errors}
-        />
-      )}
+      <section className="mx-auto flex flex-col lg:flex-row w-full max-w-7xl gap-8 px-5 md:px-8 items-start justify-center">
+        
+        <div className="flex-1 w-full max-w-md mx-auto order-2 lg:order-1">
+          <Controls 
+            onNumberClick={handleNumberInput}
+            onErase={handleErase}
+            onNewGame={initGame}
+            onDifficultyChange={setDifficulty}
+            currentDifficulty={difficulty}
+          />
+        </div>
 
-      <Controls 
-        onNumberClick={handleNumberInput}
-        onErase={handleErase}
-        onNewGame={initGame}
-        onDifficultyChange={setDifficulty}
-        currentDifficulty={difficulty}
-      />
-    </div>
+        <div className="w-full max-w-[520px] mx-auto order-1 lg:order-2">
+          {isWon && (
+            <div className="mb-4 p-4 rounded-lg bg-[#e8fbf7] border border-[#00a896]/30 text-[#007f76] font-bold text-center shadow-sm">
+              Victory! The puzzle is solved!
+            </div>
+          )}
+          {board.length > 0 && (
+            <Board 
+              board={board}
+              initialBoard={initialBoard}
+              selectedCell={selectedCell}
+              onCellClick={handleCellClick}
+              errors={errors}
+            />
+          )}
+        </div>
+      </section>
+    </main>
   );
 }
 
