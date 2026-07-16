@@ -65,48 +65,8 @@ function App() {
         </div>
       </header>
 
-      {/* Side Navigation (Desktop Only) */}
-      <aside className="hidden md:flex bg-background h-full w-80 rounded-r-xl border-r border-outline-variant shadow-2xl shadow-secondary-container/20 fixed inset-y-0 left-0 z-[60] flex-col transition-all duration-200 ease-in-out pt-6">
-        <div className="px-6 pb-6 border-b border-outline-variant/30 mb-4 flex items-center gap-4">
-          <img 
-            alt="High-Level Adventurer Avatar" 
-            className="w-16 h-16 rounded-full border-2 border-primary" 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKB55bujwS5a-XJRTsxKuGgmK_Z1pRVnjvdgF2_hqRLWlriUi5Tr6qFbv_gPh8i76uAyNlRDPd5O-DQ9LRYlK-KTsDqLgu5HvBDcqub_uuNSkCZscimjS0ReQnFb_kLFH3DQ2I2WdLrE4yFHbItsOF4NzEFz4qqCyfh781bYcZhXRhD2dHpFoccmrxy58nAev5LQoPTFgfvkpFqq2v4q8JUsCUZTZsQqpdobGHjFDt8iIgd95gPUSkrA"
-          />
-          <div>
-            <h2 className="font-headline-lg-mobile text-headline-lg-mobile text-primary">Player One</h2>
-            <p className="font-body-sm text-body-sm text-on-surface-variant">Platform Admin</p>
-            <p className="font-label-caps text-label-caps text-secondary mt-1">Status: Online</p>
-          </div>
-        </div>
-        <nav className="flex-grow flex flex-col gap-2 px-4 overflow-y-auto">
-          <a className="flex items-center gap-4 px-4 py-3 rounded-lg bg-surface-variant/40 text-primary transition-colors group cursor-pointer">
-            <span className="material-symbols-outlined">grid_view</span>
-            <span className="font-body-md text-body-md">All Games</span>
-          </a>
-          <a className="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-surface-variant/40 text-on-surface-variant transition-colors group cursor-pointer">
-            <span className="material-symbols-outlined group-hover:text-primary transition-colors">history</span>
-            <span className="font-body-md text-body-md">Play History</span>
-          </a>
-          <a className="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-surface-variant/40 text-on-surface-variant transition-colors group cursor-pointer">
-            <span className="material-symbols-outlined group-hover:text-primary transition-colors">forum</span>
-            <span className="font-body-md text-body-md">Community</span>
-          </a>
-          <a className="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-surface-variant/40 text-on-surface-variant transition-colors group cursor-pointer">
-            <span className="material-symbols-outlined group-hover:text-primary transition-colors">add_box</span>
-            <span className="font-body-md text-body-md">Add Games</span>
-          </a>
-          <div className="mt-auto mb-4 border-t border-outline-variant/30 pt-4">
-            <a className="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-surface-variant/40 text-on-surface-variant transition-colors group cursor-pointer">
-              <span className="material-symbols-outlined group-hover:text-primary transition-colors">settings</span>
-              <span className="font-body-md text-body-md">Platform Settings</span>
-            </a>
-          </div>
-        </nav>
-      </aside>
-
-      {/* Main Content Canvas */}
-      <main className="flex-grow pt-16 md:pl-80 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop space-y-12 pb-12 relative z-10">
+      {/* Main Content Canvas - Full Width Without Sidebar */}
+      <main className="flex-grow pt-16 w-full max-w-[1600px] mx-auto px-margin-mobile md:px-12 space-y-12 pb-12 relative z-10">
         
         {/* Hero Section */}
         <section className="relative w-full h-[530px] md:h-[618px] rounded-xl overflow-hidden mt-8 glass-card border-primary/30 flex items-center justify-center text-center p-8">
@@ -133,34 +93,10 @@ function App() {
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-gutter">
-          <div className="glass-card p-6 text-center space-y-2 rounded-lg glow-purple transition-all border-secondary/20">
-            <span className="material-symbols-outlined text-secondary text-4xl mb-2">sports_esports</span>
-            <h3 className="font-display-hero text-display-hero text-primary text-3xl">∞</h3>
-            <p className="font-label-caps text-label-caps text-on-surface-variant">Instant Play</p>
-          </div>
-          <div className="glass-card p-6 text-center space-y-2 rounded-lg glow-effect transition-all border-primary/20">
-            <span className="material-symbols-outlined text-primary text-4xl mb-2">extension</span>
-            <h3 className="font-display-hero text-display-hero text-primary text-3xl">Auto</h3>
-            <p className="font-label-caps text-label-caps text-on-surface-variant">Discovery Engine</p>
-          </div>
-          <div className="glass-card p-6 text-center space-y-2 rounded-lg glow-purple transition-all border-secondary/20">
-            <span className="material-symbols-outlined text-secondary text-4xl mb-2">dashboard</span>
-            <h3 className="font-display-hero text-display-hero text-primary text-3xl">100%</h3>
-            <p className="font-label-caps text-label-caps text-on-surface-variant">Iframe Sandbox</p>
-          </div>
-          <div className="glass-card p-6 text-center space-y-2 rounded-lg glow-effect transition-all border-primary/20">
-            <span className="material-symbols-outlined text-primary text-4xl mb-2">security</span>
-            <h3 className="font-display-hero text-display-hero text-primary text-3xl">Secure</h3>
-            <p className="font-label-caps text-label-caps text-on-surface-variant">Local Hosting</p>
-          </div>
-        </section>
-
         {/* Trending Realms (Games Grid) */}
-        <section className="space-y-6">
+        <section className="space-y-6 pt-4">
           <div className="flex items-center space-x-4 mb-8">
-            <h2 className="font-headline-lg text-headline-lg text-primary">Trending Realms</h2>
+            <h2 className="font-headline-lg text-headline-lg text-primary">Platform Library</h2>
             <div className="ethereal-divider flex-grow"></div>
           </div>
           
@@ -194,26 +130,7 @@ function App() {
         </section>
       </main>
 
-      {/* Bottom Navigation (Mobile Only) */}
-      <nav className="md:hidden bg-surface-container-lowest/90 backdrop-blur-xl fixed bottom-0 left-0 w-full z-50 rounded-t-3xl border-t border-primary/20 shadow-[0_-10px_30px_rgba(119,1,208,0.3)] flex justify-around items-center h-20 px-margin-mobile pb-safe">
-        <a className="flex flex-col items-center justify-center text-primary drop-shadow-[0_0_8px_rgba(233,196,0,0.8)] transition-all duration-200 w-16 cursor-pointer">
-          <span className="material-symbols-outlined mb-1" style={{ fontVariationSettings: "'FILL' 1" }}>home</span>
-          <span className="font-label-caps text-label-caps">Home</span>
-        </a>
-        <a className="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary-fixed transition-all w-16 cursor-pointer">
-          <span className="material-symbols-outlined mb-1">swords</span>
-          <span className="font-label-caps text-label-caps">Library</span>
-        </a>
-        <a className="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary-fixed transition-all w-16 cursor-pointer">
-          <span className="material-symbols-outlined mb-1">group</span>
-          <span className="font-label-caps text-label-caps">Social</span>
-        </a>
-        <a className="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary-fixed transition-all w-16 cursor-pointer">
-          <span className="material-symbols-outlined mb-1">account_circle</span>
-          <span className="font-label-caps text-label-caps">Profile</span>
-        </a>
-      </nav>
-
+      {/* Game Overlay (Iframe Launcher) */}
       {activeGameUrl && (
         <GameOverlay 
           gameUrl={activeGameUrl} 
