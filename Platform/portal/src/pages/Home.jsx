@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import CreatorSignature from '../components/CreatorSignature';
+import FeaturedGames from '../components/FeaturedGames';
 
 export default function Home() {
   return (
@@ -61,45 +62,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Module */}
-      <section className="py-16 relative">
-        <div className="text-center mb-12">
-          <h3 className="font-headline-lg text-3xl md:text-4xl text-primary mb-4">Why Arcane Realm?</h3>
-          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto"></div>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="glass-card p-8 rounded-3xl border border-outline-variant hover:border-primary/40 hover:-translate-y-2 transition-all duration-300 group">
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-              <span className="material-symbols-outlined text-3xl text-primary">bolt</span>
-            </div>
-            <h4 className="text-xl font-bold text-on-surface mb-3">Zero-Latency Routing</h4>
-            <p className="text-on-surface-variant text-sm leading-relaxed">
-              Experience flawless gameplay with our edge-optimized infrastructure, ensuring every move is registered instantly.
-            </p>
-          </div>
-          
-          <div className="glass-card p-8 rounded-3xl border border-outline-variant hover:border-primary/40 hover:-translate-y-2 transition-all duration-300 group">
-            <div className="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-colors">
-              <span className="material-symbols-outlined text-3xl text-secondary">dns</span>
-            </div>
-            <h4 className="text-xl font-bold text-on-surface mb-3">Load-Balanced Queues</h4>
-            <p className="text-on-surface-variant text-sm leading-relaxed">
-              Our intelligent queue system manages traffic spikes gracefully, maintaining server stability across all realms.
-            </p>
-          </div>
-
-          <div className="glass-card p-8 rounded-3xl border border-outline-variant hover:border-primary/40 hover:-translate-y-2 transition-all duration-300 group">
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-              <span className="material-symbols-outlined text-3xl text-primary">hub</span>
-            </div>
-            <h4 className="text-xl font-bold text-on-surface mb-3">Unified Ecosystem</h4>
-            <p className="text-on-surface-variant text-sm leading-relaxed">
-              One account to rule them all. Access your wallet, track achievements, and play instantly without multiple logins.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Featured Games Module */}
+      <FeaturedGames />
 
       {/* Signature Footer */}
       <CreatorSignature />
