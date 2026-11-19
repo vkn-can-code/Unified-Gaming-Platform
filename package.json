@@ -1,0 +1,25 @@
+{
+  "name": "unified-gaming-platform",
+  "version": "1.0.0",
+  "description": "Unified Gaming Platform - Arcane Realm Hub with dynamic micro-frontend game engines",
+  "scripts": {
+    "install:all": "npm --prefix Platform install && npm --prefix Platform/portal install && npm --prefix Games/TicTacToe install && npm --prefix Games/Sudoku install",
+    "build:portal": "npm --prefix Platform/portal run build",
+    "build:tictactoe": "npm --prefix Games/TicTacToe run build",
+    "build:sudoku": "npm --prefix Games/Sudoku run build",
+    "build:all": "npm run build:portal && npm run build:tictactoe && npm run build:sudoku",
+    "setup": "npm run install:all && npm run build:all",
+    "start": "node Platform/server.js"
+  },
+  "keywords": [
+    "gaming-platform",
+    "react",
+    "express",
+    "sqlite",
+    "micro-frontends",
+    "vite",
+    "games"
+  ],
+  "author": "Vivek K Nair (https://github.com/vkn-can-code)",
+  "license": "MIT"
+}
