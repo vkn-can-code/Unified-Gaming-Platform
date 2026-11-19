@@ -1,3 +1,33 @@
-node_modules
-.DS_Store
+# Dependencies
+node_modules/
+
+# Environment variables
 .env
+.env.*
+*.local
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Archives and backup
+*.tar
+*.zip
+*.gz
+
+# Logs
+*.log
+logs/
+
+# Build artifacts
+dist/
+dist-ssr/
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

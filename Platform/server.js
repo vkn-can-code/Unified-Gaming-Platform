@@ -61,11 +61,14 @@ app.use((req, res, next) => {
     next();
 });
 
-const allowedOrigins = [
+const defaultOrigins = [
     'http://localhost:3000', 
     'http://localhost:677',
-    'http://localhost:677'
+    'http://127.0.0.1:3000',
+    'http://127.0.0.1:677'
 ];
+const envOrigins = process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',').map(s => s.trim()) : [];
+const allowedOrigins = [...defaultOrigins, ...envOrigins];
 app.use(cors({
     origin: function(origin, callback) {
         if (!origin || allowedOrigins.includes(origin)) {
